@@ -1,0 +1,21 @@
+package game;
+
+import java.awt.Image;
+
+public class Bullet extends Entity {
+    private int speed;
+    private boolean active = true;
+
+    public Bullet(int x, int y, Image sprite, int speed) {
+        super(x, y, sprite);
+        this.speed = speed;
+    }
+
+    @Override
+    public void update() {
+        y -= speed;
+        if (y < 0) active = false;
+    }
+
+    public boolean isActive() { return active; }
+}
